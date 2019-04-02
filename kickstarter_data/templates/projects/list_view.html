@@ -3,6 +3,23 @@
 {% block content %}
 
 <h2>Project Lists:</h2>
+<div>
+  <span>
+    {% if  projects.has_previous %}
+    <a href="?page=1">&laquo; First</a>
+    <a href="?page={{ projects.previous_page_number }}">Previous</a>
+    {% endif %}
+
+    <span>
+      Page {{ projects.number }} of {{ projects.paginator.num_pages }}.
+    </span>
+
+    {% if projects.has_next %}
+      <a href="?page={{ projects.next_page_number }}">Next</a>
+      <a href="?page={{ projects.paginator.num_pages }}">Last &raquo;</a>
+    {% endif %}
+  </span>
+</div>
 
   {% for project in projects %}
     <h3>{{ project.name }}</h3>
