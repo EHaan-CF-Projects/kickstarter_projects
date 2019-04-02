@@ -13,6 +13,7 @@ pandas = "*"
 sqlalchemy = "*"
 libsass = "*"
 django-sass-processor = "*"
+django-redis = "*"
 
 [requires]
 python_version = "3.7"
