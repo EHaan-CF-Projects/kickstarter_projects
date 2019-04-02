@@ -23,6 +23,8 @@ df['state'] = df['state'].fillna('unknown')
 df['backers'] = df['backers'].fillna(0.0)
 df['country'] = df['country'].fillna('unknown')
 df['usd_pledged'] = df['usd_pledged'].fillna(0.0)
+df['usd_pledged_real'] = df['usd_pledged_real'].fillna(0.0)
+df['usd_goal_real'] = df['usd_goal_real'].fillna(0.0)
 
 db_protocol = 'postgresql'
 db_host = os.environ.get('DB_HOST', '')
@@ -35,4 +37,4 @@ engine = create_engine('{}://{}:{}@{}:5432/{}'.format(
     db_protocol, db_user, db_password, db_host, db_name
 ))
 
-df.to_sql("kickstarter", engine, if_exists='append', index=False)
+df.to_sql("kickstarter_data_project", engine, if_exists='append', index=False)
